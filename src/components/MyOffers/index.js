@@ -92,7 +92,11 @@ class MyOffers extends Component {
     render() {
         return(
             <div>
-            <OfferFiter onLocationChange={this.onLocationChange} onDateRangeChange={this.onDateRangeChange} onOfferTypeChange={this.onOfferTypeChange} onSortingChange={this.onSortingChange} markets={this.props.markets}/>
+            <OfferFiter onLocationChange={this.onLocationChange} 
+                onDateRangeChange={this.onDateRangeChange} 
+                onOfferTypeChange={this.onOfferTypeChange} 
+                onSortingChange={this.onSortingChange} 
+                markets={this.props.markets}/>
 
             <OfferList/>
 

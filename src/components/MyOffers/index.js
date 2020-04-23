@@ -2,13 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import OfferList from "./OfferList";
 import OfferFiter from './OfferFiter';
-import { FILTER_OFFER, SORT_OFFER } from "../../constants/actionTypes";
-import MarketPropertySelect from "../Common/MarketPropertySelect";
-import MultiSelectDropdown from "../Common/MultiSelectDropdown";
-import RangeCalendar from "../Common/RangeCalendar"
+import { FILTER_OFFER } from "../../constants/actionTypes";
 import {filterOffers, updateSelectedFilter} from '../../utilities/Filter'
 import {sortOffers} from '../../utilities/Sort'
-import {getOfferFilterTypes, getOfferSortTypes} from "../../Configs/Configs"
+import {getOfferSortTypes} from "../../Configs/Configs"
 
 const mapStateToProps = (state) => ({
     offers: state.common.offers,

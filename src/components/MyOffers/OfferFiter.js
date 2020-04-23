@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import MarketPropertySelect from "../Common/MarketPropertySelect";
 import MultiSelectDropdown from "../Common/MultiSelectDropdown";
 import RangeCalendar from "../Common/RangeCalendar"

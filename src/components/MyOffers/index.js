@@ -13,10 +13,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    getFilteredSortedOffers: (filteredOffers) =>
+    getFilteredSortedOffers: (payload) =>
         dispatch({
             type: FILTER_SORT_OFFER,
-            filteredOffers
+            payload
         }),
 });
 
@@ -34,19 +34,19 @@ class MyOffers extends Component {
             };
             const updatedFilters = updateSelectedFilter(selectedOfferFilters, newFilter);
             const sortType = selectedOfferSort ? selectedOfferSort : this.getDefaultSortValue();
-            let filteredOffers = filterOffers(offers, updatedFilters);
-            filteredOffers = sortOffers(filteredOffers, sortType);
-            getFilteredSortedOffers(filteredOffers);
+            let filteredSortedOffers = filterOffers(offers, updatedFilters);
+            filteredSortedOffers = sortOffers(filteredSortedOffers, sortType);
+            getFilteredSortedOffers(filteredSortedOffers);
         }
 
         this.sortOffers = (sortType) => {
-            const {offers, getFilteredOffers} = this.props;
+            const {offers, getFilteredSortedOffers} = this.props;
             if(!sortType) {
                 sortType = this.getDefaultSortValue();
             }
-            let filteredOffers = filterOffers(offers, selectedOfferFilters);
-            const sortedOffers = sortOffers(filteredOffers, sortType);
-            getFilteredSortedOffers(sortedOffers);
+            let filteredSortedOffers = filterOffers(offers, selectedOfferFilters);
+            filteredSortedOffers = sortOffers(filteredSortedOffers, sortType);
+            getFilteredSortedOffers(filteredSortedOffers);
         }
 
         this.getDefaultSortValue = () => {

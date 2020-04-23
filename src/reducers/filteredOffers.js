@@ -19,7 +19,7 @@ export default (state = defaultState, action) => {
     case FILTER_SORT_OFFER:
       return {
         ...state,
-        offers: action.filteredOffers
+        offers: action.payload
       };
     default:
       return state;

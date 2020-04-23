@@ -3,14 +3,14 @@ import { connect } from "react-redux";
 import OfferItem from "./OfferItem";
 
 const mapStateToProps = (state) => ({
-    filteredOffers: state.filteredOffers.offers,
+    filteredSortedOffers: state.filteredOffers.offers,
 });
 
 const OfferList = (props) => {
-    if(props.filteredOffers){
+    if(props.filteredSortedOffers){
         return (
             <div className="list">
-                {props.filteredOffers.map((offer, index) => {
+                {props.filteredSortedOffers.map((offer, index) => {
                     return <OfferItem key={index} offer={offer} />;
                 })}
             </div>

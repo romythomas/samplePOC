@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import OfferList from "./OfferList";
 import OfferFiter from './OfferFiter';
-import { FILTER_OFFER } from "../../constants/actionTypes";
+import { FILTER_SORT_OFFER } from "../../constants/actionTypes";
 import {filterOffers, updateSelectedFilter} from '../../utilities/Filter'
 import {sortOffers} from '../../utilities/Sort'
 import {getOfferSortTypes} from "../../Configs/Configs"
@@ -13,9 +13,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    getFilteredOffers: (filteredOffers) =>
+    getFilteredSortedOffers: (filteredOffers) =>
         dispatch({
-            type: FILTER_OFFER,
+            type: FILTER_SORT_OFFER,
             filteredOffers
         }),
 });
@@ -27,7 +27,7 @@ class MyOffers extends Component {
         var selectedOfferSort = "";
 
         this.filterOffers = (type, value) => {
-            const {offers, getFilteredOffers} = this.props;
+            const {offers, getFilteredSortedOffers} = this.props;
             const newFilter = {
                 filterType: type,
                 filterValue: value
@@ -36,7 +36,7 @@ class MyOffers extends Component {
             const sortType = selectedOfferSort ? selectedOfferSort : this.getDefaultSortValue();
             let filteredOffers = filterOffers(offers, updatedFilters);
             filteredOffers = sortOffers(filteredOffers, sortType);
-            getFilteredOffers(filteredOffers);
+            getFilteredSortedOffers(filteredOffers);
         }
 
         this.sortOffers = (sortType) => {
@@ -46,7 +46,7 @@ class MyOffers extends Component {
             }
             let filteredOffers = filterOffers(offers, selectedOfferFilters);
             const sortedOffers = sortOffers(filteredOffers, sortType);
-            getFilteredOffers(sortedOffers);
+            getFilteredSortedOffers(sortedOffers);
         }
 
         this.getDefaultSortValue = () => {

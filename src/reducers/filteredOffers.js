@@ -2,8 +2,7 @@ import {filterOffers, updateSelectedFilter} from '../utilities/Filter'
 import {sortOffers} from '../utilities/Sort'
 import {
   LOGIN,
-  FILTER_OFFER,
-  SORT_OFFER
+  FILTER_SORT_OFFER,
 } from '../constants/actionTypes';
 
 const defaultState = {
@@ -17,7 +16,7 @@ export default (state = defaultState, action) => {
         ...state,
         offers: action.error ? [] : action.payload[1].offers,
       };
-    case FILTER_OFFER:
+    case FILTER_SORT_OFFER:
       return {
         ...state,
         offers: action.filteredOffers

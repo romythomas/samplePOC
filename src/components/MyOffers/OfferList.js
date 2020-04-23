@@ -6,10 +6,6 @@ const mapStateToProps = (state) => ({
     filteredOffers: state.filteredOffers.offers,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    
-});
-
 const OfferList = (props) => {
     if(props.filteredOffers){
         return (
@@ -29,4 +25,4 @@ const OfferList = (props) => {
     
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OfferList);
+export default connect(mapStateToProps)(OfferList);

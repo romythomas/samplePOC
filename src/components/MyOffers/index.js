@@ -13,10 +13,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    getFilteredSortedOffers: (payload) =>
+    getFilteredSortedOffers: (filteredSortedOffers) =>
         dispatch({
             type: FILTER_SORT_OFFER,
-            payload
+            filteredSortedOffers
         }),
 });
 
